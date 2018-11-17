@@ -207,9 +207,6 @@ native void PF_DisableCallback(int bot_entidx, PFCallbackType type);
 // Check whether a callback function is enabled for a particular bot
 native bool PF_IsCallbackEnabled(int bot_entidx, PFCallbackType type);
 
-//IVision
-native int PF_GetPrimaryKnownThreat(int bot_entidx);
-
 
 public Extension __ext_PathFollower = {
 	name = "PathFollower",
