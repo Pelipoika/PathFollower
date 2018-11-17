@@ -5,6 +5,8 @@ SourcePawn interface for NextBot's PathFollower
 
 [Example usages](https://github.com/Pelipoika/TF2_NextBot/) 
 
+[![Everything Is AWESOME](https://img.youtube.com/vi/jXihZN2ntBw/hqdefault.jpg)](https://youtu.be/jXihZN2ntBw-Y?)
+
 # WINDOWS ONLY
 > In more recent builds of the TF2 dedicated server, the compiler has apparently been more aggressive about inlining some of these functions. To the point where there simply is no standalone version of the function in the final binary. It's just been integrated into all of the functions that called it, and then the compiler decided that there was no reason to keep a standalone, un-inlined version of the function around.
 
