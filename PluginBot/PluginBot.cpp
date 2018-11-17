@@ -3,8 +3,6 @@
 #include "PluginBotLocomotion.h"
 #include "PluginBotBody.h"
 #include "PluginBotIntention.h"
-#include "PluginBotVision.h"
-
 
 PluginBot::PluginBot(PFContext *ctx, CBaseCombatCharacter *entity) :
 	m_pContext(ctx), m_hEntity(entity)
