@@ -1,0 +1,5 @@
+build/
+msvc/
+vs/
+.vs/
+*.sublime-workspace

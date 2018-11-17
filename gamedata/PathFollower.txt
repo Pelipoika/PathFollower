@@ -1,0 +1,148 @@
+// PathFollower
+// mod by sigsegv and Pelipoika
+
+
+"Games"
+{
+	"tf"
+	{
+		"Signatures"
+		{
+			"CBaseEntity::GetAbsOrigin"
+			{
+				library "server"
+				linux   "@_ZN11CBaseEntity20CalcAbsolutePositionEv"
+				windows "\x56\x8B\xF1\x8B\x86\x14\x01\x00\x00\xC1\xE8\x0B\xA8\x01\x74\x05\xE8\x2A\x2A\x2A\x2A\x8D\x86\x90\x02\x00\x00\x5E\xC3"
+			}
+			
+		//	"CBaseCombatCharacter::UpdateLastKnownArea"
+		//	{
+		//		library "server"
+		//		linux   "@_ZN20CBaseCombatCharacter19UpdateLastKnownAreaEv"
+		//		windows "\x55\x8B\xEC\x51\xA1\x2A\x2A\x2A\x2A\x56\x8B\xF1\x83\xB8\x10\x05\x00\x00\x00"
+		//	}
+			
+			"PathFollower::PathFollower [C1]"
+			{
+				library "server"
+				linux   "@_ZN12PathFollowerC1Ev"
+				windows "\x56\x8B\xF1\xE8\x2A\x2A\x2A\x2A\xC7\x06\x2A\x2A\x2A\x2A\x8B\xC6\xC7\x86\x60\x47\x00\x00\x2A\x2A\x2A\x2A\xC7\x86\x68\x47\x00\x00\x00\x00\x80\xBF\xC7\x86\x64\x47\x00\x00\x00\x00\x00\x00\xC7\x86\x6C\x47\x00\x00\x2A\x2A\x2A\x2A\xC7\x86\x74\x47\x00\x00\x00\x00\x80\xBF\xC7\x86\x70\x47\x00\x00\x00\x00\x00\x00\xC7\x86\x78\x47\x00\x00\xFF\xFF\xFF\xFF\xC7\x86\x54\x47\x00\x00\x00\x00\x00\x00\xC6\x86\x7C\x47\x00\x00\x00\xC7\x86\x68\x47\x00\x00\x00\x00\x80\xBF\xC7\x86\x74\x47\x00\x00\x00\x00\x80\xBF\xC7\x86\x78\x47\x00\x00\xFF\xFF\xFF\xFF\xC7\x86\x58\x47\x00\x00\x00\x00\x80\xBF\xC7\x86\xD0\x47\x00\x00\x00\x00\xC8\x41\x5E\xC3"
+			}
+			
+			"Path::Compute<IPathCost> [goal]"
+			{
+				library "server"
+				linux   "@_ZZN4Path7ComputeIK9IPathCostEEbP8INextBotRK6VectorRT_fbE6tm_fmt"
+				// windows is found via a separate, horrible method (see find_stuff.h)
+			}
+			"Path::Compute<IPathCost> [subject]"
+			{
+				library "server"
+				linux   "@_ZZN4Path7ComputeIK9IPathCostEEbP8INextBotP20CBaseCombatCharacterRT_fbE6tm_fmt"
+				// windows is found via a separate, horrible method (see find_stuff.h)
+			}
+			
+			"ChasePath::RefreshPath"
+			{
+				library "server"
+				windows "\x55\x8B\xEC\x83\xEC\x30\x53\x56\x57\x33\xDB"
+			}
+			
+			"ILocomotion::IsPotentiallyTraversable"
+			{
+				library "server"
+				linux   "@_ZNK11ILocomotion24IsPotentiallyTraversableERK6VectorS2_NS_16TraverseWhenTypeEPf"
+				windows "\x53\x8B\xDC\x83\xEC\x08\x83\xE4\xF0\x83\xC4\x04\x55\x8B\x6B\x04\x89\x6C\x24\x04\x8B\xEC\x81\xEC\x08\x01\x00\x00\x56\x57\x33\xF6"
+			}
+
+			"ILocomotion::HasPotentialGap"
+			{
+				library "server"
+				linux   "@_ZNK11ILocomotion15HasPotentialGapERK6VectorS2_Pf"
+				windows "\x53\x8B\xDC\x83\xEC\x08\x83\xE4\xF0\x83\xC4\x04\x55\x8B\x6B\x04\x89\x6C\x24\x04\x8B\xEC\x83\xEC\x68\x56\x8B\xF1\x8B\x0D\x2A\x2A\x2A\x2A"
+			}
+
+			"ILocomotion::IsGap"
+			{
+				library "server"
+				linux   "@_ZNK11ILocomotion5IsGapERK6VectorS2_"
+				windows "\x53\x8B\xDC\x83\xEC\x08\x83\xE4\xF0\x83\xC4\x04\x55\x8B\x6B\x04\x89\x6C\x24\x04\x8B\xEC\x81\xEC\x18\x01\x00\x00\x8B\x15\x2A\x2A\x2A\x2A"
+			}
+
+			"CTFBotLocomotion::IsAreaTraversable"
+			{
+				library "server"
+				linux   "@_ZNK16CTFBotLocomotion17IsAreaTraversableEPK8CNavArea"
+				windows "\x55\x8B\xEC\x8B\x01\x53\x56\x57\xFF\x90\xB4\x00\x00\x00"
+			}
+			
+			"TheNextBots"
+			{
+				library "server"
+				linux   "@_Z11TheNextBotsv"
+				windows "\xA1\x2A\x2A\x2A\x2A\x85\xC0\x75\x2A\x8B\x0D\x2A\x2A\x2A\x2A\xF6\xC1\x01"
+			}
+			"NextBotManager::Register"
+			{
+				library "server"
+				linux   "@_ZN14NextBotManager8RegisterEP8INextBot"
+				windows "\x55\x8B\xEC\x56\x57\x8D\x79\x08"
+			}
+			"NextBotManager::UnRegister"
+			{
+				library "server"
+				linux   "@_ZN14NextBotManager10UnRegisterEP8INextBot"
+				windows "\x55\x8B\xEC\x51\x53\x8B\x5D\x08\x8B\xC1\x56\x57\x89\x45\xFC\x8B\x7B\x0C"
+			}
+			
+			"CNavMesh::GetNavArea [Vec]"
+			{
+				library "server"
+				linux   "@_ZNK8CNavMesh10GetNavAreaERK6Vectorf"
+				windows "\x55\x8B\xEC\x83\xEC\x34\x53\x56\x33\xDB\x8B\xF1\x8B\x0D\x2A\x2A\x2A\x2A"
+			}
+			"CNavMesh::GetNearestNavArea [Vec]"
+			{
+				library "server"
+				linux   "@_ZNK8CNavMesh17GetNearestNavAreaERK6Vectorbfbbi"
+				windows "\x55\x8B\xEC\x81\xEC\xF8\x00\x00\x00\x8B\x15\x2A\x2A\x2A\x2A"
+			}
+			
+			"TheNavMesh"
+			{
+				library "server"
+				linux   "@TheNavMesh"
+				// windows is found via a separate, horrible method (see find_stuff.h)
+			}
+
+			"TheNavAreas"
+			{
+				library "server"
+				linux   "@TheNavAreas"
+				// windows is found via a separate, horrible method (see find_stuff.h)
+			}
+		}
+		
+		"Offsets"
+		{
+			// vtable index
+			"CBaseEntity::MyCombatCharacterPointer"
+			{
+				linux   "72"
+				windows "71"
+			}
+
+			"CBaseCombatCharacter::UpdateLastKnownArea"
+			{
+				linux   "319"
+				windows "318"
+			}
+
+			"CBaseCombatCharacter::GetLastKnownArea"
+			{
+				linux   "316"
+				windows "315"
+			}
+		}
+	}
+}

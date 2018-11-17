@@ -1,0 +1,88 @@
+{
+	"configurations": [
+		{
+			"inheritEnvironments": [
+				"msvc_x86"
+			],
+			"name": "x86-Debug",
+					"includePath": [
+						"${env.INCLUDE}",
+						"C:\\Users\\Pelipoika\\Documents\\GitHub\\pathfollower\\PluginBot",
+						"C:\\Users\\Pelipoika\\Documents\\GitHub\\pathfollower\\NextBot",
+						"C:\\sdkfolder\\hl2sdk-tf2",
+						"C:\\sdkfolder\\hl2sdk-tf2\\public",
+						"C:\\sdkfolder\\hl2sdk-tf2\\game\\shared",
+					],
+			"defines": [
+				"WIN32",
+				"_DEBUG",
+				"UNICODE",
+				"_UNICODE"
+			],
+			"intelliSenseMode": "msvc-x86"
+		},
+		{
+			"inheritEnvironments": [
+				"msvc_x86"
+			],
+			"name": "x86-Release",
+					"includePath": [
+						"${env.INCLUDE}",
+						"C:\\Users\\Pelipoika\\Documents\\GitHub\\pathfollower\\PluginBot",
+						"C:\\Users\\Pelipoika\\Documents\\GitHub\\pathfollower\\NextBot",
+						"C:\\sdkfolder\\hl2sdk-tf2",
+						"C:\\sdkfolder\\hl2sdk-tf2\\public",
+						"C:\\sdkfolder\\hl2sdk-tf2\\game\\shared",
+					],
+			"defines": [
+				"WIN32",
+				"NDEBUG",
+				"UNICODE",
+				"_UNICODE"
+			],
+			"intelliSenseMode": "msvc-x86"
+		},
+		{
+			"inheritEnvironments": [
+				"msvc_x64"
+			],
+			"name": "x64-Debug",
+					"includePath": [
+						"${env.INCLUDE}",
+						"C:\\Users\\Pelipoika\\Documents\\GitHub\\pathfollower\\PluginBot",
+						"C:\\Users\\Pelipoika\\Documents\\GitHub\\pathfollower\\NextBot",
+						"C:\\sdkfolder\\hl2sdk-tf2",
+						"C:\\sdkfolder\\hl2sdk-tf2\\public",
+						"C:\\sdkfolder\\hl2sdk-tf2\\game\\shared",
+					],
+			"defines": [
+				"WIN32",
+				"_DEBUG",
+				"UNICODE",
+				"_UNICODE"
+			],
+			"intelliSenseMode": "msvc-x64"
+		},
+		{
+			"inheritEnvironments": [
+				"msvc_x64"
+			],
+			"name": "x64-Release",
+					"includePath": [
+						"${env.INCLUDE}",
+						"C:\\Users\\Pelipoika\\Documents\\GitHub\\pathfollower\\PluginBot",
+						"C:\\Users\\Pelipoika\\Documents\\GitHub\\pathfollower\\NextBot",
+						"C:\\sdkfolder\\hl2sdk-tf2",
+						"C:\\sdkfolder\\hl2sdk-tf2\\public",
+						"C:\\sdkfolder\\hl2sdk-tf2\\game\\shared",
+					],
+			"defines": [
+				"WIN32",
+				"NDEBUG",
+				"UNICODE",
+				"_UNICODE"
+			],
+			"intelliSenseMode": "msvc-x64"
+		}
+	]
+}
