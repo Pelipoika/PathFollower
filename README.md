@@ -1,4 +1,5 @@
 # PathFollower
+Made for Team Fortress 2
 SourcePawn interface for NextBot's PathFollower
 
 [Example usages](https://github.com/Pelipoika/TF2_NextBot/) 
