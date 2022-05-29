@@ -134,14 +134,14 @@
 
 			"CBaseCombatCharacter::UpdateLastKnownArea"
 			{
-				linux   "320"
-				windows "319"
+				linux   "323"
+				windows "322"
 			}
 
 			"CBaseCombatCharacter::GetLastKnownArea"
 			{
-				linux   "317"
-				windows "316"
+				linux   "320"
+				windows "319"
 			}
 		}
 	}
