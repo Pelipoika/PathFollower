@@ -12,7 +12,7 @@
 			{
 				library "server"
 				linux   "@_ZN11CBaseEntity20CalcAbsolutePositionEv"
-				windows "\x56\x8B\xF1\x8B\x86\x14\x01\x00\x00\xC1\xE8\x0B\xA8\x01\x74\x05\xE8\x2A\x2A\x2A\x2A\x8D\x86\x90\x02\x00\x00\x5E\xC3"
+				windows "\x56\x8B\xF1\x8B\x86\x3C\x01\x00\x00\xC1\xE8\x0B\xA8\x01\x74\x2A\xE8\x2A\x2A\x2A\x2A\x8D\x86\xB8\x02\x00\x00"
 			}
 			
 		//	"CBaseCombatCharacter::UpdateLastKnownArea"
@@ -128,20 +128,20 @@
 			// vtable index
 			"CBaseEntity::MyCombatCharacterPointer"
 			{
-				linux   "72"
-				windows "71"
+				linux   "74"
+				windows "73"
 			}
 
 			"CBaseCombatCharacter::UpdateLastKnownArea"
 			{
-				linux   "323"
-				windows "322"
+				linux   "326"
+				windows "325"
 			}
 
 			"CBaseCombatCharacter::GetLastKnownArea"
 			{
-				linux   "320"
-				windows "319"
+				linux   "323"
+				windows "322"
 			}
 		}
 	}
