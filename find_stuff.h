@@ -84,7 +84,7 @@ inline uintptr_t Find_Path_Compute_IPathCost_subject()
 		0xd9, 0x1c, 0x24,                   // +0011  fstp dword ptr [esp]
 		0xff, 0x75, 0x10,                   // +0014  push [ebp+0x10]
 		0x8b, 0xce,                         // +0017  mov ecx,esi
-		0xff, 0x90, 0x1c, 0x01, 0x00, 0x00, // +0019  call dword ptr [eax+0x11c]
+		0xff, 0x90, 0x24, 0x01, 0x00, 0x00, // +0019  call dword ptr [eax+0x11c]
 		0x50,                               // +001F  push eax
 		0x53,                               // +0020  push ebx
 		0x8b, 0xcf,                         // +0021  mov ecx,edi
