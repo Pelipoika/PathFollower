@@ -113,12 +113,3 @@ jobs:
         name: pathfollower-dbgsym-${{ matrix.target_branch }}-${{ steps.short-sha.outputs.sha }}
         path: |
             pathfollower/post/**/*.${{ matrix.dbg_ext }}
-
-    - name: Create Release
-      id: create_release
-      uses: actions/create-release@latest
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
