@@ -21,9 +21,12 @@ jobs:
             mm_branch: "master"
             sm_branch: "master"
 
-          - os: sm-1.11
+          - target_branch: sm-1.11
             mm_branch: "1.11-dev"
             sm_branch: "1.11-dev"
+    env:
+      DEPENDENCIES_FOLDER: dependencies
+      DEPENDENCIES_ROOT: ${{ github.workspace }}/dependencies
 
     steps:
     - name: Add msbuild to PATH (Windows)
@@ -67,11 +70,14 @@ jobs:
         path: sourcemod
         submodules: recursive
 
-    - name: Fetch Source SDKs
+    - name: Fetch Dependencies
       shell: bash
       run: |
+        mkdir -p ${{ env.DEPENDENCIES_FOLDER }}
+        cd ${{ env.DEPENDENCIES_FOLDER }}
+
         git clone --mirror https://github.com/alliedmodders/hl2sdk hl2sdk-proxy-repo
-        sdks=(tf2)
+        sdks=(tf2 sdk2013)
         for sdk in "${sdks[@]}"
         do
           git clone hl2sdk-proxy-repo -b $sdk hl2sdk-$sdk
@@ -87,7 +93,7 @@ jobs:
       run: |
         mkdir post
         cd post
-        python3 ../configure.py --enable-optimize --sdks=present --sm-path="${{ github.workspace }}/sourcemod" --mms_path="${{ github.workspace }}/mmsource"
+        python3 ../configure.py --enable-optimize --sdks=tf2 --hl2sdk-root="${{ env.DEPENDENCIES_ROOT }}" --sm-path="${{ github.workspace }}/sourcemod" --mms-path="${{ github.workspace }}/mmsource"
         ambuild
 
     - name: Get Short SHA
@@ -97,13 +103,13 @@ jobs:
     - name: Upload Artifact for ${{ matrix.target_branch }}
       uses: actions/upload-artifact@v3
       with:
-        name: pathfollower-${{ runner.target_branch }}-${{ steps.short-sha.outputs.sha }}
+        name: pathfollower-${{ matrix.target_branch }}-${{ steps.short-sha.outputs.sha }}
         path: |
             pathfollower/post/package/*
 
     - name: Upload Debug Symbols for ${{ matrix.target_branch }}
       uses: actions/upload-artifact@v3
       with:
-        name: pathfollower-dbgsym-${{ runner.target_branch }}-${{ steps.short-sha.outputs.sha }}
+        name: pathfollower-dbgsym-${{ matrix.target_branch }}-${{ steps.short-sha.outputs.sha }}
         path: |
             pathfollower/post/**/*.${{ matrix.dbg_ext }}
