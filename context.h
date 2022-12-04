@@ -44,19 +44,19 @@ public:
 inline void PluginBot::OnMoveToSuccess(const Path *path)
 {
 	this->GetContext()->m_pPluginBot->GetContext()->Call_OnMoveToSuccess(path);
-	//	DevMsg("PluginBot::OnMoveToSuccess\n");
+	DevMsg("PluginBot::OnMoveToSuccess\n");
 }
 
 inline void PluginBot::OnMoveToFailure(const Path *path, MoveToFailureType fail)
 {
 	this->GetContext()->m_pPluginBot->GetContext()->Call_OnMoveToFailure(path, ::MoveToFailureType(fail));
-	//	DevMsg("PluginBot::OnMoveToFailure\n");
+	DevMsg("PluginBot::OnMoveToFailure\n");
 }
 
 inline void PluginBot::OnActorEmoted(CBaseCombatCharacter* who, int concept)
 {
 	this->GetContext()->m_pPluginBot->GetContext()->Call_OnActorEmoted(who, concept);
-	//	DevMsg("PluginBot::OnActorEmoted\n");
+	DevMsg("PluginBot::OnActorEmoted\n");
 }
 
 

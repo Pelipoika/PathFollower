@@ -3,7 +3,6 @@
 #include "thunks.h"
 #include "sp_natives.h"
 
-
 ExtPathFollower g_Ext;
 SMEXT_LINK(&g_Ext);
 

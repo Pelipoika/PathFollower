@@ -19,6 +19,8 @@
 // BOTPORT: Clean up relationship between team index and danger storage in nav areas
 enum { MAX_NAV_TEAMS = 2 };
 
+#define TEAM_ANY -2
+
 #ifdef STAGING_ONLY
 inline void DebuggerBreakOnNaN_StagingOnly( float val )
 {
@@ -843,6 +845,22 @@ inline CNavArea *CNavArea::GetAdjacentArea( NavDirType dir, int i ) const
 	if ( ( i < 0 ) || ( i >= m_connect[dir].Count() ) )
 		return NULL;
 	return m_connect[dir][i].area;
+}
+
+static float RandomFloat(const float min_val, const float max_val)
+{
+	typedef float (*t_def)(float, float);
+	static t_def    func{reinterpret_cast<t_def>(GetProcAddress(GetModuleHandleA("vstdlib.dll"), "RandomFloat"))};
+
+	return func(min_val, max_val);
+}
+
+static int RandomInt(const int min_val, const int max_val)
+{
+	typedef int (*t_def)(int, int);
+	static t_def  func{reinterpret_cast<t_def>(GetProcAddress(GetModuleHandleA("vstdlib.dll"), "RandomInt"))};
+
+	return func(min_val, max_val);
 }
 
 inline CNavArea* CNavArea::GetRandomAdjacentArea(NavDirType dir) const

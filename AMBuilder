@@ -11,7 +11,7 @@ sourceFiles = [
   'thunks.cpp',
   'context.cpp',
   'simulate.cpp',
-  'test.cpp',
+#  'test.cpp',
   'sp_natives.cpp',
   'sp_callbacks.cpp',
   'PluginBot/PluginBot.cpp',

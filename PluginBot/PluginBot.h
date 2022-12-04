@@ -90,7 +90,7 @@ public:
 	virtual float GetImmobileSpeedThreshold() const override                      { STUB_NEXTBOT(); return 0.0f; }
 	virtual const PathFollower *GetCurrentPath() const override                   { return this->m_pCurrentPath; }
 	virtual void SetCurrentPath(const PathFollower *follower) override            { this->m_pCurrentPath = follower; }
-	virtual void NotifyPathDestruction(const PathFollower *follower) override     {}
+	virtual void NotifyPathDestruction(const PathFollower *follower) override     { STUB_NEXTBOT(); }
 	virtual bool IsRangeLessThan(CBaseEntity *ent, float dist) const override     { STUB_NEXTBOT(); return false; }
 	virtual bool IsRangeLessThan(const Vector& vec, float dist) const override    { STUB_NEXTBOT(); return false; }
 	virtual bool IsRangeGreaterThan(CBaseEntity *ent, float dist) const override  { STUB_NEXTBOT(); return false; }
@@ -102,7 +102,7 @@ public:
 	virtual bool IsDebugging(unsigned int type) const override                    { return cv_pathfollower_debug.GetBool(); }
 	virtual char *GetDebugIdentifier() const override                             { STUB_NEXTBOT(); return const_cast<char *>(""); }
 	virtual bool IsDebugFilterMatch(const char *filter) const override            { STUB_NEXTBOT(); return false; }
-	virtual void DisplayDebugText(const char *text) const override                {}
+	virtual void DisplayDebugText(const char *text) const override                { STUB_NEXTBOT(); }
 	
 	PFContext *GetContext() const { return this->m_pContext; }
 	

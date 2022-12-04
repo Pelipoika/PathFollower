@@ -238,7 +238,7 @@ void CBaseCombatCharacter::UpdateLastKnownArea()
 
 CNavArea *CBaseCombatCharacter::GetLastKnownArea() 
 {
-//	DevMsg("CBaseCombatCharacter::GetLastKnownArea()\n");
+DevMsg("CBaseCombatCharacter::GetLastKnownArea()\n");
 
 	uintptr_t *vtable = *reinterpret_cast<uintptr_t **>(const_cast<CBaseCombatCharacter *>(this));
 	auto GetLastKnownArea = *reinterpret_cast<CNavArea * (CBaseCombatCharacter::**)(void)>(vtable + Thunks::vtidx_CBaseCombatCharacter_GetLastKnownArea);
