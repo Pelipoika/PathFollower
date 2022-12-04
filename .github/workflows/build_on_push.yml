@@ -2,7 +2,7 @@
 
 on:
   push:
-    branches: [ ci-create-release ]
+    branches: [ master ]
     tags: '*'
 
 jobs:
