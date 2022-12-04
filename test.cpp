@@ -51,7 +51,8 @@ CON_COMMAND(pathfollower_new, "PathFollower: create a new PluginBot and PathFoll
 		s_PathFollower->SetMinLookAheadDistance(PATHFOLLOWER_LOOKAHEAD_DISTANCE);
 	}
 	if (s_NextBot == nullptr) {
-		s_NextBot = new PluginBot(reinterpret_cast<CBaseCombatCharacter *>(ent));
+		PFContext& ctx = (*(bots.emplace(bot_entidx, PFContext(pPlugin)).first)).second;
+		s_NextBot = new PluginBot(&ctx, static_cast<CBaseCombatCharacter *>(ent));
 		
 		auto loco = static_cast<PluginBotLocomotion *>(s_NextBot->GetLocomotionInterface());
 		loco->SetStepHeight     (LOCOMOTION_STEP_HEIGHT);
