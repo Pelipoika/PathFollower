@@ -14,13 +14,14 @@ public:
 	INextBotComponent() {}
 	virtual ~INextBotComponent() {}
 	
-	virtual void Reset()             = 0;
-	virtual void Update()            = 0;
-	virtual void Upkeep()            = 0;
-	virtual INextBot *GetBot() const = 0;
+	virtual void Reset()                = 0;
+	virtual void Update()               = 0;
+	virtual void Upkeep()               = 0;
+	virtual INextBot *GetBot() const    = 0;
+	virtual void *GetScriptDesc() const = 0;
 	
 private:
-	uint8_t pad[0x10];
+	uint8_t pad[0x14];
 };
 
 

@@ -57,11 +57,12 @@ public:
 	virtual void OnLose() override                                                                              { STUB_BODY(); }
 	
 	/* INextBotComponent */
-	virtual void Reset() override             { STUB_BODY(); }
-	virtual void Update() override            { STUB_BODY(); }
-	virtual void Upkeep() override            { STUB_BODY(); }
-	virtual INextBot *GetBot() const override { return this->m_pPluginBot; }
-	
+	virtual void Reset() override                { STUB_BODY(); }
+	virtual void Update() override               { STUB_BODY(); }
+	virtual void Upkeep() override               { STUB_BODY(); }
+	virtual INextBot *GetBot() const override    { return this->m_pPluginBot; }
+	virtual void *GetScriptDesc() const override { return nullptr; };
+
 	/* IBody */
 	virtual bool SetPosition(const Vector& pos) override                                                                                           { STUB_BODY(); return false; }
 	virtual Vector& GetEyePosition() const override                                                                                                { STUB_BODY(); return vecStub; }

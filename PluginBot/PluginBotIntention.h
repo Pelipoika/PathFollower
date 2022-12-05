@@ -56,10 +56,11 @@ public:
 	virtual void OnLose() override                                                                              { STUB_INTENT(); }
 	
 	/* INextBotComponent */
-	virtual void Reset() override             { STUB_INTENT(); }
-	virtual void Update() override            { STUB_INTENT(); }
-	virtual void Upkeep() override            { STUB_INTENT(); }
-	virtual INextBot *GetBot() const override { return this->m_pPluginBot; }
+	virtual void Reset() override                { STUB_INTENT(); }
+	virtual void Update() override               { STUB_INTENT(); }
+	virtual void Upkeep() override               { STUB_INTENT(); }
+	virtual INextBot *GetBot() const override    { return this->m_pPluginBot; }
+	virtual void *GetScriptDesc() const override { return nullptr; };
 	
 	PluginBot *GetPluginBot() const { return this->m_pPluginBot; }
 	

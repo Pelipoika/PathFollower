@@ -65,10 +65,11 @@ public:
 	virtual void OnLose() override                                                                              { STUB_LOCO(); }
 	
 	/* INextBotComponent */
-	virtual void Reset() override             { STUB_LOCO(); }
-	virtual void Update() override            { STUB_LOCO(); }
-	virtual void Upkeep() override            { STUB_LOCO(); }
-	virtual INextBot *GetBot() const override { return this->m_pPluginBot; }
+	virtual void Reset() override                { STUB_LOCO(); }
+	virtual void Update() override               { STUB_LOCO(); }
+	virtual void Upkeep() override               { STUB_LOCO(); }
+	virtual INextBot *GetBot() const override    { return this->m_pPluginBot; }
+	virtual void *GetScriptDesc() const override { return nullptr; };
 	
 	/* ILocomotion */
 	virtual void Approach(const Vector& dst, float f1) override;
