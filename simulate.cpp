@@ -21,7 +21,7 @@ void SimulateFrame(const bool simulating)
 		if (entity == nullptr)
 		{
 			obsolete.push_back(pair.first);
-			DevMsg("SimulateFrame: obsolete\n");
+			//DevMsg("SimulateFrame: obsolete\n");
 			continue;
 		}
 

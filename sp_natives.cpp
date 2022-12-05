@@ -13,7 +13,7 @@ static cell_t PF_UpdateLastKnownArea(IPluginContext *pCtx, const cell_t *params)
 {
 	const int goal_entidx = params[1];
 
-	DevMsg("PF_UpdateLastKnownArea: %d\n", goal_entidx);
+	//DevMsg("PF_UpdateLastKnownArea: %d\n", goal_entidx);
 
 	CBaseEntity *goal_ent = servertools->GetBaseEntityByEntIndex(goal_entidx);
 
@@ -40,7 +40,7 @@ static cell_t PF_GetLastKnownArea(IPluginContext *pCtx, const cell_t *params)
 {
 	const int goal_entidx = params[1];
 
-	DevMsg("PF_GetLastKnownArea: %d\n", goal_entidx);
+	//DevMsg("PF_GetLastKnownArea: %d\n", goal_entidx);
 
 	CBaseEntity *goal_ent = servertools->GetBaseEntityByEntIndex(goal_entidx);
 
@@ -74,9 +74,9 @@ static cell_t PF_Create(IPluginContext *pCtx, const cell_t *params)
 	const float        hull_scale_xy       = sp_ctof(params[9]);
 	const float        hull_scale_z        = sp_ctof(params[10]);
 
-	DevMsg("PF_Create: %d %f %f %f %f %08x %f %f\n",
-		   bot_entidx, step_height, max_jump_height, death_drop_height, slope_limit,
-		   body_solid_mask, look_ahead_distance, repath_interval);
+	//DevMsg("PF_Create: %d %f %f %f %f %08x %f %f\n",
+	//bot_entidx, step_height, max_jump_height, death_drop_height, slope_limit,
+	//body_solid_mask, look_ahead_distance, repath_interval);
 
 	if (bots.find(bot_entidx) != bots.end())
 	{
@@ -132,7 +132,7 @@ static cell_t PF_Destroy(IPluginContext *pCtx, const cell_t *params)
 {
 	const int bot_entidx = params[1];
 
-	DevMsg("PF_Destroy: %d\n", bot_entidx);
+	//DevMsg("PF_Destroy: %d\n", bot_entidx);
 
 	if (bots.find(bot_entidx) == bots.end())
 	{
@@ -150,7 +150,7 @@ static cell_t PF_Exists(IPluginContext *pCtx, const cell_t *params)
 {
 	const int bot_entidx = params[1];
 
-	//DevMsg("PF_Exists: %d\n", bot_entidx);
+	////DevMsg("PF_Exists: %d\n", bot_entidx);
 
 	return (bots.find(bot_entidx) != bots.end());
 }
@@ -161,7 +161,7 @@ static cell_t PF_SetGoalVector(IPluginContext *pCtx, const cell_t *params)
 	const int    bot_entidx = params[1];
 	const Vector vec        = GetVector(params[2], pCtx);
 
-	DevMsg("PF_SetGoalVector: %d %f %f %f\n", bot_entidx, vec.x, vec.y, vec.z);
+	//DevMsg("PF_SetGoalVector: %d %f %f %f\n", bot_entidx, vec.x, vec.y, vec.z);
 
 	if (bots.find(bot_entidx) == bots.end())
 	{
@@ -182,7 +182,7 @@ static cell_t PF_GetGoalVector(IPluginContext *pCtx, const cell_t *params)
 	const int    bot_entidx = params[1];
 	const Vector vec        = GetVector(params[2], pCtx);
 
-	DevMsg("PF_SetGoalVector: %d %f %f %f\n", bot_entidx, vec.x, vec.y, vec.z);
+	//DevMsg("PF_SetGoalVector: %d %f %f %f\n", bot_entidx, vec.x, vec.y, vec.z);
 
 	if (bots.find(bot_entidx) == bots.end())
 	{
@@ -201,7 +201,7 @@ static cell_t PF_SetGoalEntity(IPluginContext *pCtx, const cell_t *params)
 	const int bot_entidx  = params[1];
 	const int goal_entidx = params[2];
 
-	DevMsg("PF_SetGoalEntity: %d %d\n", bot_entidx, goal_entidx);
+	//DevMsg("PF_SetGoalEntity: %d %d\n", bot_entidx, goal_entidx);
 
 	if (bots.find(bot_entidx) == bots.end())
 	{
@@ -238,7 +238,7 @@ static cell_t PF_IsPathToVectorPossible(IPluginContext *pCtx, const cell_t *para
 	const int    bot_entidx = params[1];
 	const Vector vec        = GetVector(params[2], pCtx);
 
-	DevMsg("PF_IsPathToVectorPossible: %d %f %f %f\n", bot_entidx, vec.x, vec.y, vec.z);
+	//DevMsg("PF_IsPathToVectorPossible: %d %f %f %f\n", bot_entidx, vec.x, vec.y, vec.z);
 
 	if (bots.find(bot_entidx) == bots.end())
 	{
@@ -276,7 +276,7 @@ static cell_t PF_IsPathToEntityPossible(IPluginContext *pCtx, const cell_t *para
 	const int bot_entidx  = params[1];
 	const int goal_entidx = params[2];
 
-	DevMsg("PF_IsPathToEntityPossible: %d %d\n", bot_entidx, goal_entidx);
+	//DevMsg("PF_IsPathToEntityPossible: %d %d\n", bot_entidx, goal_entidx);
 
 	if (bots.find(bot_entidx) == bots.end())
 	{
@@ -330,7 +330,7 @@ static cell_t PF_StartPathing(IPluginContext *pCtx, const cell_t *params)
 {
 	const int bot_entidx = params[1];
 
-	DevMsg("PF_StartPathing: %d\n", bot_entidx);
+	//DevMsg("PF_StartPathing: %d\n", bot_entidx);
 
 	if (bots.find(bot_entidx) == bots.end())
 	{
@@ -348,7 +348,7 @@ static cell_t PF_StopPathing(IPluginContext *pCtx, const cell_t *params)
 {
 	const int bot_entidx = params[1];
 
-	DevMsg("PF_StopPathing: %d\n", bot_entidx);
+	//DevMsg("PF_StopPathing: %d\n", bot_entidx);
 
 	if (bots.find(bot_entidx) == bots.end())
 	{
@@ -368,7 +368,7 @@ static cell_t PF_GetFutureSegment(IPluginContext *pCtx, const cell_t *params)
 	const int bot_entidx = params[1];
 	const int num        = params[2];
 
-	DevMsg("PF_GetFutureSegment: %d %d\n", bot_entidx, num);
+	//DevMsg("PF_GetFutureSegment: %d %d\n", bot_entidx, num);
 
 	if (bots.find(bot_entidx) == bots.end())
 	{
@@ -400,7 +400,7 @@ static cell_t PF_IsDiscontinuityAhead(IPluginContext *pCtx, const cell_t *params
 	const Path::SegmentType type       = (Path::SegmentType)params[2];
 	const float             range      = sp_ctof(params[3]);
 
-	DevMsg("PF_IsDiscontinuityAhead: %d\n", bot_entidx);
+	//DevMsg("PF_IsDiscontinuityAhead: %d\n", bot_entidx);
 
 	if (bots.find(bot_entidx) == bots.end())
 	{
@@ -451,7 +451,7 @@ static cell_t PF_IsPotentiallyTraversable(IPluginContext *pCtx, const cell_t *pa
 	const Vector                        to         = GetVector(params[3], pCtx);
 	const ILocomotion::TraverseWhenType when       = (ILocomotion::TraverseWhenType)(params[4]);
 
-	DevMsg("PF_IsPotentiallyTraversable: %d\n", bot_entidx);
+	//DevMsg("PF_IsPotentiallyTraversable: %d\n", bot_entidx);
 
 	if (bots.find(bot_entidx) == bots.end())
 	{
@@ -483,7 +483,7 @@ static cell_t PF_HasPotentialGap(IPluginContext *pCtx, const cell_t *params)
 	const Vector from       = GetVector(params[2], pCtx);
 	const Vector to         = GetVector(params[3], pCtx);
 
-	DevMsg("PF_HasPotentialGap: %d\n", bot_entidx);
+	//DevMsg("PF_HasPotentialGap: %d\n", bot_entidx);
 
 	if (bots.find(bot_entidx) == bots.end())
 	{
@@ -513,7 +513,7 @@ static cell_t PF_GetPtr_PluginBot(IPluginContext *pCtx, const cell_t *params)
 {
 	const int bot_entidx = params[1];
 
-	DevMsg("PF_GetPtr_PluginBot: %d\n", bot_entidx);
+	//DevMsg("PF_GetPtr_PluginBot: %d\n", bot_entidx);
 
 	if (bots.find(bot_entidx) == bots.end())
 	{
@@ -530,7 +530,7 @@ static cell_t PF_GetPtr_PluginBotLocomotion(IPluginContext *pCtx, const cell_t *
 {
 	const int bot_entidx = params[1];
 
-	DevMsg("PF_GetPtr_PluginBotLocomotion: %d\n", bot_entidx);
+	//DevMsg("PF_GetPtr_PluginBotLocomotion: %d\n", bot_entidx);
 
 	if (bots.find(bot_entidx) == bots.end())
 	{
@@ -548,7 +548,7 @@ static cell_t PF_GetPtr_PluginBotBody(IPluginContext *pCtx, const cell_t *params
 {
 	const int bot_entidx = params[1];
 
-	DevMsg("PF_GetPtr_PluginBotBody: %d\n", bot_entidx);
+	//DevMsg("PF_GetPtr_PluginBotBody: %d\n", bot_entidx);
 
 	if (bots.find(bot_entidx) == bots.end())
 	{
@@ -566,7 +566,7 @@ static cell_t PF_GetPtr_PluginBotIntention(IPluginContext *pCtx, const cell_t *p
 {
 	const int bot_entidx = params[1];
 
-	DevMsg("PF_GetPtr_PluginBotIntention: %d\n", bot_entidx);
+	//DevMsg("PF_GetPtr_PluginBotIntention: %d\n", bot_entidx);
 
 	if (bots.find(bot_entidx) == bots.end())
 	{
@@ -584,7 +584,7 @@ static cell_t PF_IsEntityACombatCharacter(IPluginContext *pCtx, const cell_t *pa
 {
 	const int entidx = params[1];
 
-	DevMsg("PF_IsEntityACombatCharacter: %d\n", entidx);
+	//DevMsg("PF_IsEntityACombatCharacter: %d\n", entidx);
 
 	const CBaseEntity *ent = servertools->GetBaseEntityByEntIndex(entidx);
 
@@ -604,7 +604,7 @@ static cell_t PF_EnableCallback(IPluginContext *pCtx, const cell_t *params)
 	const auto     cb_type    = (PFCallbackType)params[2];
 	const funcid_t cb_func_id = params[3];
 
-	DevMsg("PF_EnableCallback: %d %d %" PRIu32 "\n", bot_entidx, cb_type, cb_func_id);
+	//DevMsg("PF_EnableCallback: %d %d %" PRIu32 "\n", bot_entidx, cb_type, cb_func_id);
 
 	if (bots.find(bot_entidx) == bots.end())
 	{
@@ -636,7 +636,7 @@ static cell_t PF_DisableCallback(IPluginContext *pCtx, const cell_t *params)
 	const int  bot_entidx = params[1];
 	const auto cb_type    = (PFCallbackType)params[2];
 
-	DevMsg("PF_DisableCallback: %d %d\n", bot_entidx, cb_type);
+	//DevMsg("PF_DisableCallback: %d %d\n", bot_entidx, cb_type);
 
 	if (bots.find(bot_entidx) == bots.end())
 	{
@@ -661,7 +661,7 @@ static cell_t PF_IsCallbackEnabled(IPluginContext *pCtx, const cell_t *params)
 	const int  bot_entidx = params[1];
 	const auto cb_type    = (PFCallbackType)params[2];
 
-	DevMsg("PF_IsCallbackEnabled: %d %d\n", bot_entidx, cb_type);
+	//DevMsg("PF_IsCallbackEnabled: %d %d\n", bot_entidx, cb_type);
 
 	if (bots.find(bot_entidx) == bots.end())
 	{
