@@ -3,6 +3,7 @@
 on:
   push:
     branches: [ master ]
+    tags: '*'
 
 jobs:
   build_main:
@@ -101,6 +102,7 @@ jobs:
       id: short-sha
 
     - name: Upload Artifact for ${{ matrix.target_branch }}
+      if: "!startsWith(github.ref, 'refs/tags/')"
       uses: actions/upload-artifact@v3
       with:
         name: pathfollower-${{ matrix.target_branch }}-${{ steps.short-sha.outputs.sha }}
@@ -108,8 +110,67 @@ jobs:
             pathfollower/post/package/*
 
     - name: Upload Debug Symbols for ${{ matrix.target_branch }}
+      if: "!startsWith(github.ref, 'refs/tags/')"
       uses: actions/upload-artifact@v3
       with:
         name: pathfollower-dbgsym-${{ matrix.target_branch }}-${{ steps.short-sha.outputs.sha }}
         path: |
             pathfollower/post/**/*.${{ matrix.dbg_ext }}
+
+    # creates a release package to be uploaded, skipped if the trigger commit does not have a tag
+    - name: Build Release Package for ${{ matrix.target_branch }}
+      if: startsWith(github.ref, 'refs/tags/')
+      working-directory: pathfollower
+      shell: cmd
+      run: |
+        cd post/package
+        7z a -bb3 -mx9 -r "pathfollower-${{ matrix.target_branch }}-${{ steps.short-sha.outputs.sha }}.zip" addons
+
+    # Cache release package to be retreived by the create_release job
+    - name: Cache Release Package
+      if: startsWith(github.ref, 'refs/tags/')
+      uses: actions/cache@v3.0.11
+      id: cache
+      with:
+        path: |
+          pathfollower/post/package/*.zip
+        key: pathfollower-${{ github.ref_name }}-${{ matrix.target_branch }}
+
+
+  # Job for creating a release, waits for build_main to finish
+  create_release:
+    name: Upload Release
+    runs-on: windows-latest
+    needs: [ build_main ]
+    if: startsWith(github.ref, 'refs/tags/')
+    strategy:
+      fail-fast: false
+    env:
+      RELEASE_ROOT: ${{ github.workspace }}/pathfollower/post/package
+
+    steps:
+    # Retrive the cached files from the previous jobs
+    - name: Retreive Release Package From Cache
+      uses: actions/cache@v3.0.11
+      id: cache1
+      with:
+        path: |
+          pathfollower/post/package/*.zip
+        key: pathfollower-${{ github.ref_name }}-sm-latest
+
+    # To do: retreive both caches using a single step
+    - name: Retreive Release Package From Cache
+      uses: actions/cache@v3.0.11
+      id: cache2
+      with:
+        path: |
+          pathfollower/post/package/*.zip
+        key: pathfollower-${{ github.ref_name }}-sm-1.11
+
+    - name: Create Release
+      uses: softprops/action-gh-release@v0.1.15
+      with:
+        name: "Path Follower ${{ github.ref_name }}"
+        generate_release_notes: true
+        files:  |
+          pathfollower/**/*.zip
