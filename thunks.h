@@ -22,6 +22,15 @@ class ILocomotion;
 #endif
 /* this pragma won't be necessary if compiling with '/vmg /vms' */
 
+/* Fixes compile against tf2 sdk */
+class IGameEventManagerScuff
+{
+public:
+	bool AddListener( void *listener, const char *name, bool bServerSide ) { return false; }
+	void RemoveListener( void *listener) { }
+};
+
+extern IGameEventManagerScuff* gameeventmanager;
 
 namespace Thunks
 {
